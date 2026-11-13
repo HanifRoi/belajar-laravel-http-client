@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
+use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertNotNull;
 use function PHPUnit\Framework\assertTrue;
 
 class HttpTest extends TestCase
@@ -28,5 +30,16 @@ class HttpTest extends TestCase
     {
         $response = Http::delete('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro');
         assertTrue($response->ok());
+    }
+
+    public function testResponse()
+    {
+        $response = Http::get('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro');
+        assertEquals(200, $response->status());
+        assertNotNull($response->headers());
+        assertNotNull($response->body());
+
+        $json = $response->json();
+        assertTrue($json);
     }
 }
