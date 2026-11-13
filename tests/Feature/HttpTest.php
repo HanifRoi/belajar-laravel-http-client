@@ -51,4 +51,16 @@ class HttpTest extends TestCase
         ])->get('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro');
         assertTrue($response->ok());
     }
+
+    public function testHeader()
+    {
+        $response = Http::withQueryParameters([
+            'page'=>1,
+            'limit'=>10
+        ])->withHeaders([
+            'Accept'=>'application/json',
+            'X-Request-ID'=>'12323232323'
+        ])->get('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro');
+        assertTrue($response->ok());
+    }
 }
