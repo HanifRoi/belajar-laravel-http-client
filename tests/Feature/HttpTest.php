@@ -78,4 +78,15 @@ class HttpTest extends TestCase
         ], 'https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro')->get('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro');
         assertTrue($response->ok());
     }
+
+    public function testFormPost()
+    {
+        $response = Http::asForm()->post('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro', [
+            'username'=>'admin',
+            'password'=>'admin'
+        ]);
+        assertTrue($response->ok());
+    }
+
+
 }
