@@ -87,6 +87,16 @@ class HttpTest extends TestCase
         ]);
         assertTrue($response->ok());
     }
+    public function testMultiPart()
+    {
+        $response = Http::asMultipart()
+        ->attach("profile", file_get_contents(__DIR__ . "/HttpTest.php"),"profile.jpg")
+        ->post('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro', [
+            'username'=>'admin',
+            'password'=>'admin'
+        ]);
+        assertTrue($response->ok());
+    }
 
 
 }
