@@ -42,4 +42,13 @@ class HttpTest extends TestCase
         $json = $response->json();
         assertTrue($json);
     }
+
+    public function testQueryParameter()
+    {
+        $response = Http::withQueryParameters([
+            'page'=>1,
+            'limit'=>10
+        ])->get('https://bd0fa3351f48fd717fa8gi7abmeyyyyyb.oast.pro');
+        assertTrue($response->ok());
+    }
 }
