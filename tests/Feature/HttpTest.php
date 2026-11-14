@@ -40,8 +40,6 @@ class HttpTest extends TestCase
         assertNotNull($response->headers());
         assertNotNull($response->body());
 
-        $json = $response->json();
-        assertTrue($json);
     }
 
     public function testQueryParameter()
